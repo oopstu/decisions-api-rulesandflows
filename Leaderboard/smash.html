@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <title>Decisions Leaderboard!</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Decisions Leaderboard</a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#"></a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Leaderboards</span>
+                <!--<a class="d-flex align-items-center text-muted" href="#">
+                    <span data-feather="plus-circle"></span>
+                </a>-->
+            </h6>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <!--Add "active" to highlight blue-->
+                  <a class="nav-link" href="index.html">
+                    <span data-feather="users"></span>
+                    All Players
+                  </a>
+                </li>
+                <li class="nav-item">
+                    <!--Add "active" to highlight blue-->
+                  <a class="nav-link" href="mario-kart.html">
+                    <span data-feather="zap"></span>
+                    Mario Kart
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="smash.html">
+                    <span data-feather="gitlab"></span>
+                    Super Smash Bros
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <!--Add "active" to highlight blue-->
+                <a class="nav-link" href="pool.html">
+                  <span data-feather="triangle"></span>
+                  Pool
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="darts.html">
+                  <span data-feather="target"></span>
+                  Darts
+                </a>
+              </li>
+              </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Super Smash Brothers</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#addPlayerModal">Add Player</button>
+                <button class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#addRecordModal">Add Record</button>
+              </div>
+            </div>
+          </div>
+
+          <!--<h2>Section title</h2>-->
+          <div class="table-responsive">
+            <table id = "SmashTable" class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Game</th>
+                  <th>First</th>
+                  <th>Second</th>
+                  <th>Third</th>
+                  <th>Fourth</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!--ADD PLAYER MODAL-->
+    <div class="modal fade" id="addPlayerModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Player</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id = "add-player-form">
+              <div class="form-group">
+                <label for="player-name" class="form-control-label">Player Name:</label>
+                <input type="text" class="form-control" id="player-name">
+              </div>
+              <div class="form-group">
+                <div class="" id="add-player-feedback">
+                </div>
+              </div>
+              <!--<div class="form-group">
+                <label for="message-text" class="form-control-label">Message:</label>
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>-->
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="add-player-button">Create player</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Nevermind</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END ADD PLAYER MODAL-->
+
+    <!--ADD RECORD MODAL-->
+    <div class="modal fade" id="addRecordModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Record</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id = "add-record-form">
+              <div class="form-group">
+                <label for="game-name" class="form-control-label">Game:</label>
+                <select class="mdb-select form-control" id="game">
+                    <option value="" disabled selected>Select the game</option>
+                    <option value="1">Mario Kart</option>
+                    <option value="2">Super Smash Bros</option>
+                    <option value="3">Pool</option>
+                    <option value="4">Darts</option>
+                    <option value="5">Shpoople</option>
+                </select>
+              </div>
+              <div class="form-group">
+                  <label for="game-date" class="form-control-label">Date/Time of Match:</label>
+                  <div class="">
+                    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="game-date">
+                  </div>
+                </div>
+              <div class = "row">
+                  <div class="form-group col-sm-6">
+                    <label for="player-name" class="form-control-label">First Place:</label>
+                    <select class="mdb-select form-control player" id="1player">
+                        <option value="" disabled selected>Select the player</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="player-name" class="form-control-label">Second Place:</label>
+                    <select class="mdb-select form-control player" id="2player">
+                        <option value="" disabled selected>Select the player</option>
+                    </select>
+                  </div>
+              </div>
+              <div class = "row">
+                  <div class="form-group col-sm-6">
+                    <label for="player-name" class="form-control-label">Third Place:</label>
+                    <select class="mdb-select form-control player" id="3player">
+                        <option value="" disabled selected>Select the player</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="player-name" class="form-control-label">Fourth Place:</label>
+                    <select class="mdb-select form-control player" id="4player">
+                        <option value="" disabled selected>Select the player</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="form-group">
+                <div class="" id="add-record-feedback">
+                </div>
+              </div>
+              <!--<div class="form-group">
+                <label for="message-text" class="form-control-label">Message:</label>
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>-->
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="add-record-button">Create record</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Nevermind</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END ADD RECORD MODAL-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace();
+      $('#datetimepicker1').datetimepicker();
+    </script>
+    <script src="script.js"></script>
+    <script src="smash.js"></script>
+
+</body>
+</html>
